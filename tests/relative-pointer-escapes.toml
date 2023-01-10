@@ -1,0 +1,19 @@
+[registry."http://example.com/1".foo]
+"tilde~field" = "bar"
+"slash/field" = "baz"
+"percent%field" = "quux"
+
+[[tests]]
+base_uri = "http://example.com/1"
+ref = "#/foo/tilde~0field"
+target = "bar"
+
+[[tests]]
+base_uri = "http://example.com/1"
+ref = "#/foo/slash~1field"
+target = "baz"
+
+[[tests]]
+base_uri = "http://example.com/1"
+ref = "#/foo/percent%25field"
+target = "quux"

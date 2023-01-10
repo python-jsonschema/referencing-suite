@@ -1,0 +1,7 @@
+[registry]
+"http://example.com/1" = {foo = [2, 4, 6]}
+
+[[tests]]
+base_uri = "http://example.com/1"
+ref = "#/foo/1"
+target = 4
