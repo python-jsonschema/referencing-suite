@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "A schema for files contained within this suite",
+
+  "type": "object",
+  "properties": {
+    "registry": {
+      "default": {},
+      "type": "object",
+      "propertyNames": { "format": "uri-reference" }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "base_uri": { "type": "string", "format": "uri" },
+          "ref": { "type": "string" },
+          "target": {}
+        },
+        "required": ["ref", "target"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
