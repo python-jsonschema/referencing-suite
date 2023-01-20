@@ -1,0 +1,12 @@
+{
+  "registry": {
+    "http://example.com/foo": { "foo": { "bar": { "baz": 12 } } }
+  },
+  "tests": [
+    {
+      "base_uri": "http://example.com/foo",
+      "ref": "#/foo/bar",
+      "target": { "baz": 12 }
+    }
+  ]
+}

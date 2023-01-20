@@ -1,6 +1,0 @@
-[registry]
-"http://example.com/1" = {foo = "bar"}
-
-[[tests]]
-ref = "http://example.com/1"
-target = {foo = "bar"}

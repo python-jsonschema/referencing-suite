@@ -1,0 +1,11 @@
+{
+  "registry": {
+    "http://example.com/foo": { "foo": "bar" }
+  },
+  "tests": [
+    {
+      "ref": "http://example.com/foo",
+      "target": { "foo": "bar" }
+    }
+  ]
+}

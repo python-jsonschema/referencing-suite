@@ -1,7 +1,0 @@
-[registry]
-"http://example.com/1" = {foo = {bar = {baz = 12}}}
-
-[[tests]]
-base_uri = "http://example.com/1"
-ref = "#/foo/bar"
-target = {baz = 12}
