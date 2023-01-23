@@ -1,0 +1,20 @@
+{
+  "registry": {
+    "http://example.com/": {
+      "then": {
+        "$id": "http://example.com/oh-hey-a-then",
+        "abc": 123
+      }
+    }
+  },
+  "tests": [
+    {
+      "base_uri": "http://example.com/",
+      "ref": "http://example.com/oh-hey-a-then",
+      "target": {
+        "$id": "http://example.com/oh-hey-a-then",
+        "abc": 123
+      }
+    }
+  ]
+}
