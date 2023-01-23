@@ -15,15 +15,16 @@ from jsonschema.validators import validator_for
 import pytest
 
 ROOT = Path(__file__).parent
-TESTS = ROOT / "tests"
+VERSIONS = ROOT / "tests"
 SCHEMA = json.loads(ROOT.joinpath("test-schema.json").read_text())
+SPECS = json.loads(VERSIONS.joinpath("specifications.json").read_text())
 
 
 def test_schema_is_valid():
     validator_for(SCHEMA).check_schema(SCHEMA)
 
 
-@pytest.mark.parametrize("test_path", TESTS.rglob("*.json"))
+@pytest.mark.parametrize("test_path", VERSIONS.glob("*/**/*.json"))
 def test_tests_are_valid(test_path):
     try:
         test = json.loads(test_path.read_text())
@@ -31,3 +32,11 @@ def test_tests_are_valid(test_path):
         assert False, f"{test_path} contains invalid JSON"
     else:
         validator_for(SCHEMA)(SCHEMA).validate(test)
+
+
+@pytest.mark.parametrize(
+    "version",
+    [version for version in VERSIONS.iterdir() if version.is_dir()],
+)
+def test_specification_directories_are_identified(version):
+    assert version.name in SPECS
