@@ -1,4 +1,5 @@
 {
+  "$schema": "../../test-schema.json",
   "registry": {
     "http://example.com/": {
       "then": {

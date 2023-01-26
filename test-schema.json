@@ -4,6 +4,7 @@
 
   "type": "object",
   "properties": {
+    "$schema": { "type": "string", "pattern": "/test-schema.json$" },
     "registry": {
       "default": {},
       "type": "object",
@@ -18,7 +19,7 @@
           "ref": { "type": "string" },
           "target": {}
         },
-        "required": ["ref", "target"],
+        "required": ["ref", "target", "$schema"],
         "additionalProperties": false
       }
     }
