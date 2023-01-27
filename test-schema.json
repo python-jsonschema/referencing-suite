@@ -6,6 +6,7 @@
   "properties": {
     "$schema": { "type": "string", "pattern": "/test-schema.json$" },
     "registry": {
+      "description": "A collection of schemas, identified by (retrieval) URI which may be referenced in tests in this file.",
       "default": {},
       "type": "object",
       "propertyNames": { "format": "uri-reference" }
@@ -17,10 +18,21 @@
         "properties": {
           "base_uri": { "type": "string", "format": "uri" },
           "ref": { "type": "string" },
-          "target": {}
+          "target": {},
+          "error": { "const": true }
         },
-        "required": ["ref", "target"],
-        "additionalProperties": false
+        "oneOf": [
+          {
+            "description": "A test with an expected result to the reference lookup.",
+            "required": ["target"]
+          },
+          {
+            "description": "A test with some form of invalid reference. How this is reported will be language-specific.",
+            "required": ["error"]
+          }
+        ],
+        "required": ["ref"],
+        "unevaluatedProperties": false
       }
     }
   },
