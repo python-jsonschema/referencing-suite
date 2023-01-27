@@ -1,0 +1,23 @@
+{
+  "$schema": "../../test-schema.json",
+  "registry": {
+    "http://example.com/": {
+      "anyOf": [
+        { "$id": "http://example.com/0", "title": "First!" },
+        { "$id": "http://example.com/1", "title": "Second!" }
+      ]
+    }
+  },
+  "tests": [
+    {
+      "base_uri": "http://example.com/",
+      "ref": "http://example.com/0",
+      "target": { "$id": "http://example.com/0", "title": "First!" }
+    },
+    {
+      "base_uri": "http://example.com/",
+      "ref": "http://example.com/1",
+      "target": { "$id": "http://example.com/1", "title": "Second!" }
+    }
+  ]
+}
