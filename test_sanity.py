@@ -16,12 +16,12 @@ import pytest
 
 ROOT = Path(__file__).parent
 VERSIONS = ROOT / "tests"
-SCHEMA = json.loads(ROOT.joinpath("test-schema.json").read_text())
 SPECS = json.loads(VERSIONS.joinpath("specifications.json").read_text())
 
-
-def test_schema_is_valid():
-    validator_for(SCHEMA).check_schema(SCHEMA)
+_SCHEMA = json.loads(ROOT.joinpath("test-schema.json").read_text())
+Validator = validator_for(_SCHEMA)
+Validator.check_schema(_SCHEMA)
+VALIDATOR = Validator(_SCHEMA)
 
 
 @pytest.mark.parametrize("test_path", VERSIONS.glob("*/**/*.json"))
@@ -31,7 +31,7 @@ def test_tests_are_valid(test_path):
     except json.JSONDecodeError:
         assert False, f"{test_path} contains invalid JSON"
     else:
-        validator_for(SCHEMA)(SCHEMA).validate(test)
+        VALIDATOR.validate(test)
 
 
 @pytest.mark.parametrize(
