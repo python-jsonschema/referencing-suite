@@ -12,7 +12,6 @@
   },
   "tests": [
     {
-      "base_uri": "http://example.com/",
       "ref": "http://example.com/oh-hey-a-subschema",
       "target": {
         "$id": "http://example.com/oh-hey-a-subschema",
