@@ -1,5 +1,6 @@
 {
   "json-schema-draft-07": "http://json-schema.org/draft-07/schema#",
   "json-schema-draft-06": "http://json-schema.org/draft-06/schema#",
-  "json-schema-draft-04": "http://json-schema.org/draft-04/schema#"
+  "json-schema-draft-04": "http://json-schema.org/draft-04/schema#",
+  "json-schema-draft-03": "http://json-schema.org/draft-03/schema#"
 }
