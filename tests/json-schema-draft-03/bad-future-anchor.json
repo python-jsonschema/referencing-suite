@@ -2,7 +2,7 @@
   "$schema": "../../test-schema.json",
   "registry": {
     "http://example.com/": {
-      "definitions": {
+      "properties": {
         "foo": {
           "$anchor": "foo",
           "foo": "bar"
