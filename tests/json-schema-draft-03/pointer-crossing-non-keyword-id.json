@@ -2,15 +2,17 @@
   "$schema": "../../test-schema.json",
   "registry": {
     "http://example.com/": {
-      "properties": {
-        "id": { "type": "string" },
-        "foo": { "bar": "baz" }
+      "additionalProperties": {
+        "properties": {
+          "id": { "type": "string" },
+          "foo": { "bar": "baz" }
+        }
       }
     }
   },
   "tests": [
     {
-      "ref": "http://example.com/#/properties/foo",
+      "ref": "http://example.com/#/additionalProperties/properties/foo",
       "target": { "bar": "baz" }
     }
   ]
