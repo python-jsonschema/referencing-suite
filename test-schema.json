@@ -31,6 +31,8 @@
             "required": ["error"]
           }
         ],
+        "minItems": 1,
+        "uniqueItems": true,
         "required": ["ref"],
         "unevaluatedProperties": false
       }
