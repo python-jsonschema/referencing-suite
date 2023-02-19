@@ -4,7 +4,10 @@
 
   "type": "object",
   "properties": {
-    "$schema": { "type": "string", "pattern": "/test-schema.json$" },
+    "$schema": {
+      "type": "string",
+      "pattern": "\\.\\./\\.\\./test-schema.json$"
+    },
     "registry": {
       "description": "A collection of schemas, identified by (retrieval) URI which may be referenced in tests in this file.",
       "default": {},
