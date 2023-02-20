@@ -18,29 +18,39 @@
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": {
-        "type": "object",
-        "properties": {
-          "base_uri": { "type": "string", "format": "uri" },
-          "ref": { "type": "string" },
-          "target": {},
-          "error": { "const": true }
-        },
-        "oneOf": [
-          {
-            "description": "A test with an expected result to the reference lookup.",
-            "required": ["target"]
-          },
-          {
-            "description": "A test with some form of invalid reference. How this is reported will be language-specific.",
-            "required": ["error"]
-          }
-        ],
-        "required": ["ref"],
-        "unevaluatedProperties": false
-      }
+      "items": { "$ref": "#test" }
     }
   },
   "required": ["$schema", "tests"],
-  "additionalProperties": false
+  "additionalProperties": false,
+
+  "$defs": {
+    "test": {
+      "$anchor": "test",
+      "type": "object",
+      "properties": {
+        "base_uri": { "type": "string", "format": "uri" },
+        "ref": { "type": "string" },
+        "target": {},
+        "then": {
+          "title": "A further test to run which should maintain state from the initial lookup.",
+          "$ref": "#test",
+          "properties": { "base_uri": false }
+        },
+        "error": { "const": true }
+      },
+      "oneOf": [
+        {
+          "description": "A test with an expected result to the reference lookup.",
+          "required": ["target"]
+        },
+        {
+          "description": "A test with some form of invalid reference. How this is reported will be language-specific.",
+          "required": ["error"]
+        }
+      ],
+      "required": ["ref"],
+      "unevaluatedProperties": false
+    }
+  }
 }

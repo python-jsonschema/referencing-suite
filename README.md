@@ -51,3 +51,5 @@ The tests are found in the `tests` array, and each object within the array conta
   * a `ref` key which is a reference to be resolved, along with an optional base URI to use to resolve a relative reference against
 
   * *either* of a `target` key which is the expected result of resolving the reference (taking into account the registry), *or* contain the key `error`, indicating that resolving the reference should produce some sort of error (because the reference is broken or somehow invalid)
+
+  * an optional `then` key, which itself is a further test (recursively), and which is meant to be resolved *statefully* given the result of parent tests
