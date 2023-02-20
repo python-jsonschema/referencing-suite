@@ -16,6 +16,8 @@
     },
     "tests": {
       "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
       "items": {
         "type": "object",
         "properties": {
@@ -34,8 +36,6 @@
             "required": ["error"]
           }
         ],
-        "minItems": 1,
-        "uniqueItems": true,
         "required": ["ref"],
         "unevaluatedProperties": false
       }
