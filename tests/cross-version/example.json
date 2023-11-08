@@ -1,0 +1,20 @@
+{
+  "$defs": {
+    "M": {
+      "$id": "http://localhost/M",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$defs": {
+        "MarkConfig": { "type": "integer" }
+      }
+    },
+    "C": {
+      "$id": "http://localhost/C",
+      "$schema": "https://json-schema.org/draft-04/schema",
+      "$defs": {
+        "Config": { "$ref": "http://localhost/M#/$defs/MarkConfig" }
+      },
+      "$ref": "http://localhost/C#/$defs/Config"
+    }
+   },
+  "$ref": "/C"
+}
