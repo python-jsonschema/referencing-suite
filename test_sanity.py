@@ -29,7 +29,7 @@ def test_tests_are_valid(test_path):
     try:
         test = json.loads(test_path.read_text())
     except json.JSONDecodeError:
-        assert False, f"{test_path} contains invalid JSON"
+        pytest.fail(f"{test_path} contains invalid JSON")
     else:
         VALIDATOR.validate(test)
 
