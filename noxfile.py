@@ -3,7 +3,9 @@ from pathlib import Path
 import nox
 
 ROOT = Path(__file__).parent
+TESTS = ROOT / "test_sanity.py"
 
+nox.options.default_venv_backend = "uv|virtualenv"
 nox.options.sessions = []
 
 
@@ -31,4 +33,4 @@ def style(session):
     Check Python code style in the sanity test suite.
     """
     session.install("ruff")
-    session.run("ruff", "check", ROOT, __file__)
+    session.run("ruff", "check", ROOT, TESTS, __file__)

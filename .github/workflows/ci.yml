@@ -2,12 +2,15 @@ name: Test Suite Sanity Checking
 
 on:
   push:
+    branches-ignore:
+      - "wip*"
+    tags:
+      - "v*"
   pull_request:
-  release:
-    types: [published]
   schedule:
     # Daily at 3:42, arbitrarily as a time that's possibly non-busy
     - cron: "42 3 * * *"
+  workflow_dispatch:
 
 jobs:
   ci:
@@ -15,7 +18,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up nox
-        uses: wntrblm/nox@2024.10.09
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
       - name: Run nox
-        run: nox
+        run: uvx nox
