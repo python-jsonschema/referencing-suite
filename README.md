@@ -1,5 +1,7 @@
 # JSON Referencing Test Suite
 
+[![DOI](https://zenodo.org/badge/587468916.svg)](https://doi.org/10.5281/zenodo.14675569)
+
 This repository contains a set of JSON objects that implementers of JSON referencing specifications can use to test their implementations.
 
 It is meant to be language agnostic and should require only a JSON parser.
